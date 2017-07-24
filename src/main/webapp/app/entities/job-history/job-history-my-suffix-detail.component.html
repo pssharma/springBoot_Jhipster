@@ -1,0 +1,33 @@
+
+<div *ngIf="jobHistory">
+    <h2><span jhiTranslate="springbootJhipsterApp.jobHistory.detail.title">Job History</span> {{jobHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="springbootJhipsterApp.jobHistory.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{jobHistory.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="springbootJhipsterApp.jobHistory.endDate">End Date</span></dt>
+        <dd>
+            <span>{{jobHistory.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="springbootJhipsterApp.jobHistory.language">Language</span></dt>
+        <dd>
+            <span jhiTranslate="{{'springbootJhipsterApp.Language.' + jobHistory.language}}">{{jobHistory.language}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'job-history-my-suffix/'+ jobHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

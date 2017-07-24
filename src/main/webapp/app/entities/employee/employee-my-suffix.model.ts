@@ -1,0 +1,15 @@
+import { BaseEntity } from './../../shared';
+
+export class EmployeeMySuffix implements BaseEntity {
+    constructor(
+        public id?: string,
+        public firstName?: string,
+        public lastName?: string,
+        public email?: string,
+        public phoneNumber?: string,
+        public hireDate?: any,
+        public salary?: number,
+        public commissionPct?: number,
+    ) {
+    }
+}
